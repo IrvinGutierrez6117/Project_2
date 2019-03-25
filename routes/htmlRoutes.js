@@ -4,7 +4,7 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
+      res.render("intro", {
         msg: "Welcome!",
         examples: dbExamples
       });
@@ -20,6 +20,15 @@ module.exports = function(app) {
         example: dbExample
       });
     });
+  });
+
+  app.get("/intro/", function(req, res) {
+    res.render("intro", {});
+  });
+
+  app.get("/postData/", function(req, res) {
+    //req.body.new..
+    //res.render("intro", {});
   });
 
   // Render 404 page for any unmatched routes
