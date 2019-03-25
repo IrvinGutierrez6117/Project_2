@@ -18,22 +18,22 @@ $(".emoji-choice").on("click", function(e) {
 
 });
 // Update/put if user logs in
-$("#login-existing-button").on("click", function(e){
-    newUser = false;
-    // Backend question, what is the table called for the db to store info
-    db.tableName.findOne().then(function(){
-        //.findOne will find a table entry you are searching
+// $("#login-existing-button").on("click", function(e){
+//     newUser = false;
+//     // Backend question, what is the table called for the db to store info
+//     db.tableName.findOne().then(function(){
+//         //.findOne will find a table entry you are searching
 
-    })
-});
+//     })
+// });
 //Post info into the server
 // if user is new, create them and use findOne to get them from the database
 
 //create a post method to the database for both users
 //create a get request from existing database
-function updateUsersDB() {
-    if (newUser === true) {
+// function updateUsersDB() {
+//     if (newUser === true) {
         
-    }
+//     }
 
-}
+// }
