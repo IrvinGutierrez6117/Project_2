@@ -53,7 +53,7 @@
       <div id="intro-existing-user-modal" class="modal">
           <div class="modal-content container">
               <!-- First -->
-              <h4 class="center">Existing user</h4>
+              <h4 class="center">Existing User</h4>
               <!-- Second -->
               <div class="row">
                   <div class="input-field col s12">
@@ -108,7 +108,7 @@
                             <p>
                                 <label>
                                 <input name="group1" type="radio" />
-                                <span class="emoji-choice"  id="emoji-meh">Meh</span>
+                                <span class="emoji-choice"  id="emoji-okay">Okay</span>
                               </label>
                             </p>
                         </div>
@@ -129,34 +129,46 @@
                         </div>
                     </div>
                 </div>
-          <div class="row">
-            <div class="center col s12">
-              <a id="intro-existing-user-button" href="#intro-journal-modal" class="modal-close waves-effect waves-green btn modal-trigger">Next</a>
+            <div class="row">
+                <div class="center col s12">
+                <a id="intro-existing-user-button" href="#intro-journal-modal" class="modal-close waves-effect waves-green btn modal-trigger">Next</a>
+                </div>
             </div>
-          </div>
-          </div>
-          <div class="row" id="intro-below-emoji-space">
-            <div class="col s12"></div>
-          </div>
+            </div>
+            <div class="row" id="intro-below-emoji-space">
+                <div class="col s12"></div>
+            </div>
         </div>
       </div>
+      {{!-- Time Modal --}}
+
       {{!-- Journal Modal --}}
       <div id="intro-journal-modal" class="modal">
         <div class="modal-content container">
-          <h4 class="center">Reflect About Your Day:</h4>
+          <h4 class="center">What are your thoughts?</h4>
         </div>
-
-          <input type="hidden" name="new" id="data-new" value="true">
-          <input type="hidden" name="emoji" id="data-emoji">
+         <div class="row" id="intro-journal-emoji-space">
+            <div class="col s12"></div>
+        </div>
+        <div class="container">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">create</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">Title:</label>
+            </div>
           <div class="row">
             <div class="input-field center col s12">
-              <i class="material-icons prefix">mode_edit</i>
-              <textarea name="journal" id="icon_prefix2" class="materialize-textarea"></textarea>
-              <label for="icon_prefix2"></label>
+              <i class="material-icons prefix">subject</i>
+              <textarea name="journalEntry" id="icon_prefix2" id="journalEntry" class="materialize-textarea"></textarea>
+              <label for="icon_prefix2">Thoughts:</label>
               <a id="journal-entry-button" href="/results" class="modal-close waves-effect waves-green btn modal-trigger" id="submit-entry">Submit</a>
             </div>
           </div>
-        </form>
+        
+        </div>
+         <div class="row" id="intro-below-journal-space">
+            <div class="col s12"></div>
+        </div>
       </div>
     </form>
       <!-- End of body, entering scripts  -->
