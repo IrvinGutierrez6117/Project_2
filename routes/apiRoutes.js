@@ -24,6 +24,16 @@ module.exports = function(app) {
   //   });
   // });
 
+  // ====================================================
+  // Reflect's code
+
+  //  Get all journal entries
+  app.get("/api/entries", function(req, res) {
+    db.JournalEntries.findAll({}).then(function(dbJournalEntries) {
+      res.json(dbJournalEntries);
+    });
+  });
+
   app.post("/api/entries", function(req, res) {
     db.JournalEntries.create({
       title: req.body.title,

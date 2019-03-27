@@ -39,9 +39,17 @@ $(document).ready(function(){
     // }
 });
 
-$entryBtn = $("#journal-entry-button");
+// // Existing User Modal
+// $userName = $("#intro-existing-name");
+
+// // Emotion Modal
+// $emotionInput = $("#emotion1"
+
+
+// Jounral entry modal elements
 $entryTitle = $("#intro-title");
 $entryBody = $("#journalEntry");
+$entryBtn = $("#journal-entry-button");
 
 var API = {
     saveEntry: function(entry) {
