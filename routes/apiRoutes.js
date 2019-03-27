@@ -25,7 +25,10 @@ module.exports = function(app) {
   // });
 
   app.post("/api/entries", function(req, res) {
-    db.JournalEntries.create(req.body).then(function(dbJournalEntries) {
+    db.JournalEntries.create({
+      title: req.body.title,
+      body: req.body.body
+    }).then(function(dbJournalEntries) {
       res.json(dbJournalEntries);
     });
   });

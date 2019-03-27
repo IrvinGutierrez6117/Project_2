@@ -63,13 +63,19 @@ var API = {
 var handleEntrySubmit = function(event) {
     event.preventDefault();
 
+    
+    $entryTitle = $("#intro-text");
+    $entryBody = $("#journalEntry");
+
     // Stores input from journal entry form into "entry" variable
     var entry = {
         title: $entryTitle.val().trim(),
         body: $entryBody.val().trim()
     }
 
+    // alert(JSON.stringify(entry));
+
     API.saveEntry(entry).then(console.log(entry));
 };
-
+$entryBtn = $("#journal-entry-button");
 $entryBtn.on("click", handleEntrySubmit);
