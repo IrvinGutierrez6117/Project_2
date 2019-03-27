@@ -39,3 +39,37 @@ $(document).ready(function(){
     // }
 });
 
+$entryBtn = $("#journal-entry-button");
+$entryTitle = $("#intro-title");
+$entryBody = $("#journalEntry");
+
+var API = {
+    saveEntry: function(entry) {
+        return $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "POST",
+            url: "/api/entries",
+            data: JSON.stringify(entry)
+            //Get entries function
+            // Delete entries function
+        });
+    }
+};
+
+// refresh examples function
+
+var handleEntrySubmit = function(event) {
+    event.preventDefault();
+
+    // Stores input from journal entry form into "entry" variable
+    var entry = {
+        title: $entryTitle.val().trim(),
+        body: $entryBody.val().trim()
+    }
+
+    API.saveEntry(entry).then(console.log(entry));
+};
+
+$entryBtn.on("click", handleEntrySubmit);
