@@ -1,41 +1,36 @@
 $(document).ready(function(){
-    var newUser = true;
-    // change to false for Login/Existing user
     //initialize modal materialize
     $('.modal').modal();
     //initialize textarea materialize
     $('input#input_text, textarea#textarea2').characterCounter();
 
-    // when user clicks any one of the emojis, it gets stored in a variable
-    var emoji;
-    // on click function for emoji selected
-    $(".emoji-choice").on("click", function(e) {
-        // shows what emoji is clicked. 
-        // needs to be stored in DB 
-        emoji = e.currentTarget.id;
-        console.log(emoji);
-        // Materialize text area
+    //This will get the value of each input for the form
+    function isRadioAnswer (x) {
+        let isResponse = document.getElementsByName(x);
+        if (isResponse[0].checked) {
+            return isResponse[0].value;
+        } else if (isResponse[1].checked) {
+            return isResponse[1].value;
+        } else if (isResponse[2].checked) {
+            return isResponse[2].value;
+        }
+    }
 
+
+
+    $("#intro-submit-entry").on("click", function() {
+        
+        //this object "newPost" holds all the values from the emotion, timeframe, and journal form. 
+        let newPost = {
+            emotion: isRadioAnswer("group1"),
+            timeFrame: isRadioAnswer("group2"),
+            titleName: $("#title-name").val().trim(),
+            journalEntry: $("#journalEntry").val().trim()
+        }
+        console.log(newPost);
+
+        //post method to database what alex said
     });
-    // Update/put if user logs in
-    // $("#login-existing-button").on("click", function(e){
-    //     newUser = false;
-    //     // Backend question, what is the table called for the db to store info
-    //     db.tableName.findOne().then(function(){
-    //         //.findOne will find a table entry you are searching
 
-    //     })
-    // });
-    //Post info into the server
-    // if user is new, create them and use findOne to get them from the database
-
-    //create a post method to the database for both users
-    //create a get request from existing database
-    // function updateUsersDB() {
-    //     if (newUser === true) {
-            
-    //     }
-
-    // }
 });
 
