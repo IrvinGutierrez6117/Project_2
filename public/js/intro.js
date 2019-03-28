@@ -5,6 +5,7 @@ $(document).ready(function(){
     $('input#input_text, textarea#textarea2').characterCounter();
     // Form submit button entry
     $("#intro-submit-entry").on("click", submitEntry);
+    $('.parallax').parallax();
     $(".dropdown-trigger").dropdown({
         coverTrigger: false,
         hover: true
@@ -88,7 +89,7 @@ $(document).ready(function(){
     console.log(newPost);
     //var userId = ;
     // Submit new post to JournalEntries API Route
-    $.ajax("/api/JournalEntries/", {
+    $.ajax("/api/entries/", {
         type: "POST",
         data: newPost
     }).then(journalPost);

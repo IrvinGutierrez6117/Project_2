@@ -5,19 +5,19 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("intro");
   });
+
   // Load one result onto the page and pass in user by id
-  app.get("/results/:id", function(req, res) {
-    db.tableName
-      .findOne({ where: { id: req.params.id } })
-      .then(function(dbtableResults) {
-        res.render("oneResult", {
-          oneResult: dbtableResults
-        });
+  app.get("/result/:id", function(req, res) {
+    entryController.findEntry(req.params.id, function(dbEntry) {
+      res.render("oneResult", {
+        oneResult: dbEntry
       });
+    });
   });
+
   // Loads all results onto the page
   app.get("/results/", function(req, res) {
-    db.tableName.findAll({}).then(function(dbtableResults) {
+    entryController.findAll(function(dbtableResults) {
       res.render("allResults", {
         allResults: dbtableResults
       });
