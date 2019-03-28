@@ -1,29 +1,33 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all journals
+  // --------------- User Routes ----------------------------
+  // Get all users (READ)
+  app.get("/api/users", function(req, res) {
+    db.Users.findAll({}).then(function(dbUsers) {
+      res.json(dbUsers);
+    });
+  });
+  // Create new user > Add to db (CREATE)
+  app.post("/api/users", function(req, res) {
+    //db.tableName.create(req.body).then(function(dbName) {});
+    db.Users.create(req.body).then(function(dbUsers) {
+      // console.log(res.body);
+      console.log(dbUsers);
+      // console.log(res);
+      res.json(dbUsers);
+    });
+  });
+
+  // -------------- Journal Entry Routes --------------------
+  // Get all journals (READ)
   app.get("/api/entries/", function(req, res) {
     db.JournalEntries.findAll({}).then(function(dbJournalEntries) {
       res.json(dbJournalEntries);
     });
   });
 
-  // // Delete an example by id
-  // app.delete("/api/JournalEntries/:id", function(req, res) {
-  //   db.Example.destroy({ where: { id: req.params.id } }).then(function(
-  //     dbJournalEntries
-  //   ) {
-  //     res.json(dbJournalEntries);
-  //   });
-  // });
-  // Post Form
-  // app.post("/api/JournalEntries/", function(req, res) {
-  //   //db.tableName.create(req.body).then(function(dbName) {});
-  //   db.JournalEntries.create(req.body).then(function(JournalEntries) {
-  //     console.log(res.body);
-  //   });
-  // });
-  // New Post form route
+  // Create new entry (CREATE)
   app.post("/api/entries/", function(req, res) {
     //db.tableName.create(req.body).then(function(dbName) {});
     db.JournalEntries.create(req.body).then(function(dbJournalEntries) {

@@ -6,3 +6,6 @@ CREATE DATABASE testdb;
 
 USE reflectdb;
 SELECT * FROM JournalEntries;
+
+USE reflectdb;
+SELECT * FROM Users;
