@@ -11,6 +11,21 @@ $(document).ready(function(){
      });
 });
 
+// Create btn ID = #intro-new-user-modal
+// Login btn ID = #intro-existing-user-modal
+
+// New User Modal
+    // username input = #intro-new-name
+    // pword input = #intro-new-password
+    // btn = #intro-new-user-button
+
+// Existing User Modal
+    // username input = #intro-existing-name
+    // pword input = #intro-existing-password
+    // btn = #intro-existing-user-button
+
+    
+
 
 //This will get the value of each input for the form
 function isRadioAnswer (x) {
