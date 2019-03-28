@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     emotion: DataTypes.INTEGER,
     timeFrame: DataTypes.INTEGER,
     title: DataTypes.TEXT,
-    body: DataTypes.TEXT
+    body: DataTypes.TEXT,
+    userId: DataTypes.INTEGER
   });
 
   return JournalEntries;
