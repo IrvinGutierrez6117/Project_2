@@ -1,3 +1,5 @@
+// import { runInNewContext } from "vm";
+
 $(document).ready(function(){
     //initialize modal materialize
     $('.modal').modal();
@@ -32,6 +34,18 @@ var API = {
         }).then(function(req, res) {
             console.log(req);
             console.log(existingUser);
+            for (i = 0; i < req.length; i++) {
+                if (existingUser.userName === req[i].userName
+                    && existingUser.password === req[i].password) {
+                    console.log(
+                        "Match! " + 
+                        "Username = " + req[i].userName + " " +
+                        "Password = " + req[i].password);
+                } else {
+                    console.log("No match :(");
+                    // Need to redirect to New User Model
+                }
+            }
         });
     },
     // ----------- Journal entry API funcitons ---------
@@ -98,9 +112,7 @@ var searchUserDb = function(event) {
         password: $("#intro-existing-password").val().trim()
     };
 
-    API.searchUser(existingUser).then(function() {
-        console.log(existingUser);
-    });
+    API.searchUser(existingUser);
 };
 
 // ============== Journal Entry Functions ===================
