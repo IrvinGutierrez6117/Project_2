@@ -5,17 +5,15 @@ $(document).ready(function(){
     $('input#input_text, textarea#textarea2').characterCounter();
     //===================== materialize =========================
 
-    var newOrExistUser = null;
+    //very long name to indicate this is a response pulled back to the server 
+    var newOrExistUserPostResponse = null;
+    //havent done anything with this yet
     var allPostInfo = null;
 
     var newUser = false;
     var existingUser = false;
 
-    var newUsername = $("#intro-new-name").val().trim();
-    var existingUsername = $("#intro-existing-name").val().trim();
-    
-    var newPassword = $("#intro-new-password").val().trim();
-    var existingPassword = $("#intro-existing-password").val().trim();
+    var currentUser;
 
     //This will get the value of each input for the form
     function isRadioAnswer (x) {
@@ -29,29 +27,44 @@ $(document).ready(function(){
         }
     }
 
+    //callback function after isUserClick function is initiated
+    function timeToPost(y) {
+        $.post("the-route-you-want-to-post-to", currentUser).then(function(err, res) {
+            if (err) throw err;
+            console.log(err);
+            newOrExistUserPostResponse = res;
+        });
+    }
+
     //This function is used to activate the clicks for when a user selects to be a new or an existing user
-    function isUserClick (x) {
-        if (newUser === true) {
+    function isUserClick (x, func) {
+        if (x === true) {
             //post method for 
-
-            return newOrExistUser = //something; && newUsername && newPassword
-        } else if (existingUser === true) {
+            currentUser = {
+                userName: $("#intro-new-name").val().trim(),
+                password: $("#intro-new-password").val().trim()
+            }
+            return newOrExistUser = currentUser;
+        } else if (x === true) {
             //post method for existing user
-
-            return newOrExistUser = //something; && existingUsername && existingPassword
+            currentUser = {
+                userName: $("#intro-existing-name").val().trim(),
+                password: $("#intro-existing-password").val().trim()
+            }
+            return newOrExistUser = currentUser;
         }
     }
     // When user clicks Create Account button        
     $("#intro-new-user-modal").on("click", function() {
         newUser = true;
         existingUser = false;
-        isUserClick(newUser);
+        isUserClick(newUser, timeToPost(currentUser));
     });
     // When user clicks Login button
     $("#intro-existing-user-modal").on("click", function() {
         existingUser = true;
         newUser = false;
-        isUserClick(existingUser);
+        isUserClick(existingUser, timeToPost(currentUser));
     });
 
     $("#intro-submit-entry").on("click", function() {
