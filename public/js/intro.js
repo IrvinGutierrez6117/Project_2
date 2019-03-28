@@ -167,3 +167,8 @@ $("#intro-submit-entry").on("click", handleFormSubmit);
 $("#intro-new-user-button").on("click", handleUserSubmit);
 
 $("#intro-existing-user-button").on("click", searchUserDb);
+
+// PLAN:
+// 1. Get failed existing user search to direct to Create User modal
+// 2. Try isLoggedIn flag to store current userID and link to post with foreign key
+// 3. Would need to update entries modal with foreign keys
