@@ -1,14 +1,39 @@
-<div id="intro-general-container" class="container row">
-  <div id="intro-title" class="col s12">Reflect</div>
-  <div id="intro-image" class="col s12"></div>
-  {{!-- Two Buttons --}}
-  <div id="intro-button-container" class="col s12">
-      <a class="waves-effect waves-light btn modal-trigger" href="#intro-new-user-modal">Create Account</a>
-      <a class="waves-effect waves-light btn modal-trigger" href="#intro-existing-user-modal">Login</a>
-  </div>
+<nav>
+    <div class="nav-wrapper white" id="nav-bar">
+        <a href="#" class="brand-logo center white text-black" id="logo-header"><img src="../images/icons8-invert-selection-filled-48.png"></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down ">
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger btn ' href='#' data-target='dropdown1'>  <i class="material-icons">menu</i></a>
 
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class="dropdown-content ">
+                <li><a href="/">Home</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/about">About</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </ul>
+    </div>
+</nav>      
+<div id="intro-general-container">
+    <div class="row" >
+        <div class="container" id="logo-container">
+            <h1 id="logo-name">Reflect</h1>
+
+            <div class="row">
+                <div class="col s12 m6 l3"><p></p></div>
+                <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-new-user-modal"><i class="material-icons"> person</i> Create</a></p></div>
+                <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-existing-user-modal">Login</a></div></p></div>
+                <div class="col s12 m6 l3"><p></p></div>
+            </div>
+        </div>
+    </div>
+    
+</div>  
+          
 </div>
-<form action="/postData" method="post">
+<form action="/api/journalEntries" method="post">
     <!-- New User -->
     <div id="intro-new-user-modal" class="modal">
         <div class="modal-content container">
@@ -198,38 +223,63 @@
 
 {{!-- Journal Modal --}}
     <div id="intro-user-journal-modal" class="modal">
-    <div class="modal-content container">
-        <h4 class="center">What are your thoughts?</h4>
-    </div>
-    {{!-- row one --}}
-    <div class="row" id="intro-journal-emoji-space">
-        <div class="col s12"></div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">create</i>
-                <input id="title-name" type="text" class="validate">
-                <label for="title-name">Title:</label>
+        <div class="modal-content container">
+            <h4 class="center">What are your thoughts?</h4>
+        </div>
+        {{!-- row one --}}
+        <div class="row" id="intro-journal-emoji-space">
+            <div class="col s12"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">create</i>
+                    <input id="title-name" type="text" class="validate">
+                    <label for="title-name" id="journalEntryTitle">Title:</label>
+                </div>
+            </div>
+            <div class="col s6"></div>
+            <div class="row">
+                <div class="input-field center col s12">
+                    <i class="material-icons prefix">subject</i>
+                    <textarea name="journalEntry" id="journalEntry" class="materialize-textarea"></textarea>
+                    <label for="journalEntry">Thoughts:</label>
+                </div>
+            </div>
+            <div class="row center">
+                <a id="intro-submit-entry" href="#!" class="modal-close waves-effect waves-green btn modal-trigger" data-length="300">Submit</a>
             </div>
         </div>
-        <div class="col s6"></div>
-        <div class="row">
-            <div class="input-field center col s12">
-                <i class="material-icons prefix">subject</i>
-                <textarea name="journalEntry" id="journalEntry" class="materialize-textarea"></textarea>
-                <label for="journalEntry">Thoughts:</label>
-            </div>
-        </div>
-        <div class="row center">
-            <a id="intro-submit-entry" href="#!" class="modal-close waves-effect waves-green btn modal-trigger" data-length="300">Submit</a>
-        </div>
-    </div>
         <div class="row" id="intro-below-journal-space">
-        <div class="col s12"></div>
+            <div class="col s12"></div>
         </div>
     </div>
 </form>
+
+<footer class="page-footer grey lighten-3">
+    <div class="container ">
+    <div class="row">
+        <div class="col l6 s12">
+        <h5 class="black-text">Creators</h5>
+        <p>
+            <ul class="black-text">
+                <li><a href="https://github.com/notmattcaro">Matthew Caro</a></li>
+                <li><a href="https://github.com/IrvinGutierrez6117">Irvin Gutierrez</a></li>
+                <li><a href="https://github.com/tracynle">Tracy Le</a></li>
+                <li><a href="https://github.com/sweetmike">Michael Rivera</a></li>
+            </ul>
+        </p>
+        </div>
+        
+    </div>
+    </div>
+    <div class="footer-copyright blue-grey lighten-2">
+    <div class="container ">
+    © 2019 Copyright
+    </div>
+    </div>
+</footer>
+            
 <!-- End of body, entering scripts  -->
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <!-- Materialize JS Framework -->
