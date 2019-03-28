@@ -45,12 +45,6 @@ var API = {
         data: JSON.stringify(newPost)
         });
     },
-// getExamples: function() {
-//     return $.ajax({
-//     url: "api/examples",
-//     type: "GET"
-//     });
-// }
 // *** Don't need to delete posts? ***
 // deleteExample: function(id) {
 //     return $.ajax({
@@ -62,6 +56,7 @@ var API = {
 
 // ============== User Functions ===================
 
+// -------- btn and input ids for user ----------
 // Create btn ID = #intro-new-user-modal
 // Login btn ID = #intro-existing-user-modal
 
@@ -83,6 +78,7 @@ var handleUserSubmit = function(event) {
         password: $("#intro-new-password").val().trim()
     };
     
+    // TODO: get if BLANK condition working
     // if (!(newPost.text && newPost.description)) {
     //   alert("You must enter an example text and description!");
     //   return;
@@ -140,6 +136,7 @@ var handleFormSubmit = function(event) {
         body: $("#journalEntry").val().trim()
     };
   
+    // TODO: Get if BLANK condition working
     // if (!(newPost.text && newPost.description)) {
     //   alert("You must enter an example text and description!");
     //   return;
