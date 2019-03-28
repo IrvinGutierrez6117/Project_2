@@ -3,5 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.TEXT,
     body: DataTypes.TEXT
   });
+
+  
   return JournalEntries;
 };
+
