@@ -1,89 +1,82 @@
 $(document).ready(function(){
-    var newUser = true;
-    // change to false for Login/Existing user
     //initialize modal materialize
     $('.modal').modal();
     //initialize textarea materialize
     $('input#input_text, textarea#textarea2').characterCounter();
-
-    // when user clicks any one of the emojis, it gets stored in a variable
-    var emoji;
-    // on click function for emoji selected
-    $(".emoji-choice").on("click", function(e) {
-        // shows what emoji is clicked. 
-        // needs to be stored in DB 
-        emoji = e.currentTarget.id;
-        console.log(emoji);
-        // Materialize text area
-
-    });
-    // Update/put if user logs in
-    // $("#login-existing-button").on("click", function(e){
-    //     newUser = false;
-    //     // Backend question, what is the table called for the db to store info
-    //     db.tableName.findOne().then(function(){
-    //         //.findOne will find a table entry you are searching
-
-    //     })
-    // });
-    //Post info into the server
-    // if user is new, create them and use findOne to get them from the database
-
-    //create a post method to the database for both users
-    //create a get request from existing database
-    // function updateUsersDB() {
-    //     if (newUser === true) {
-            
-    //     }
-
-    // }
+    // Form submit button entry
+    // $("#intro-submit-entry").on("click", submitEntry);
+    $(".dropdown-trigger").dropdown({
+        coverTrigger: false,
+        hover: true
+     });
 });
 
-// // Existing User Modal
-// $userName = $("#intro-existing-name");
 
-// // Emotion Modal
-// $emotionInput = $("#emotion1"
+//This will get the value of each input for the form
+function isRadioAnswer (x) {
+    let isResponse = document.getElementsByName(x);
+    if (isResponse[0].checked) {
+        return isResponse[0].value;
+    } else if (isResponse[1].checked) {
+        return isResponse[1].value;
+    } else if (isResponse[2].checked) {
+        return isResponse[2].value;
+    }
+}
 
+ // Object variable holding new post   
+let newPost = {
+    emotion: isRadioAnswer("group1"),
+    timeFrame: isRadioAnswer("group2"),
+    titleName: $("#title-name").val().trim(),
+    journalEntry: $("#journalEntry").val().trim()
+};
 
-// Jounral entry modal elements
-$entryTitle = $("#intro-title");
-$entryBody = $("#journalEntry");
-$entryBtn = $("#journal-entry-button");
-
+// The API object contains methods for each kind of request we'll make
 var API = {
-    saveEntry: function(entry) {
-        return $.ajax({
-            headers: {
-                "Content-Type": "application/json"
-            },
-            type: "POST",
-            url: "/api/entries",
-            data: JSON.stringify(entry)
-            //Get entries function
-            // Delete entries function
-        });
-    }
+saveNewPost: function(newPost) {
+    return $.ajax({
+    headers: {
+        "Content-Type": "application/json"
+    },
+    type: "POST",
+    url: "api/entries",
+    data: JSON.stringify(newPost)
+    });
+},
+getExamples: function() {
+    return $.ajax({
+    url: "api/examples",
+    type: "GET"
+    });
+},
+deleteExample: function(id) {
+    return $.ajax({
+    url: "api/examples/" + id,
+    type: "DELETE"
+    });
+}
 };
 
-// refresh examples function
-
-var handleEntrySubmit = function(event) {
+var handleFormSubmit = function(event) {
     event.preventDefault();
+  
+    let newPost = {
+        emotion: parseInt(isRadioAnswer("group1")),
+        timeFrame: parseInt(isRadioAnswer("group2")),
+        title: $("#title-name").val().trim(),
+        body: $("#journalEntry").val().trim()
+    };
+  
+    // if (!(newPost.text && newPost.description)) {
+    //   alert("You must enter an example text and description!");
+    //   return;
+    // }
+  
+    API.saveNewPost(newPost).then(function() {
+        console.log(newPost);
+    });
+ 
+  };
 
-    
-    $entryTitle = $("#intro-text");
-    $entryBody = $("#journalEntry");
-
-    // Stores input from journal entry form into "entry" variable
-    var entry = {
-        title: $entryTitle.val().trim(),
-        body: $entryBody.val().trim()
-    }
-
-    // alert(JSON.stringify(entry));
-
-    API.saveEntry(entry).then(console.log(entry));
-};
-$entryBtn = $("#journal-entry-button");
-$entryBtn.on("click", handleEntrySubmit);
+  $("#intro-submit-entry").on("click", handleFormSubmit);

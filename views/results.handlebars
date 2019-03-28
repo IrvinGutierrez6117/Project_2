@@ -1,12 +1,10 @@
-<nav id="navbar" class="navbar-fixed">
-    <div class="nav-wrapper grey darken-4">
-        <a href="#!" class="brand-logo"><img id="nav-logo" src="" alt="ReflectLogo"></a>
-        <a href="#!" data-target="mobile-demo" class="sidenav-trigger"><i
-                class="material-icons deep-purple-text text-accent-1">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="deep-purple-text text-accent-1" href="#!">Intro</a></li>
-            <li><a class="deep-purple-text text-accent-1" href="#!">Results</a></li>
-        </ul>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Logo</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="intro">Home</a></li>
+       
+      </ul>
     </div>
 </nav>
 <ul id="mobile-demo" class="sidenav">
@@ -15,11 +13,13 @@
 </ul>
 
 <div id="results-general-container" class="container row">
-    
+    {{!-- Pie chart appears here --}}
 </div>
 
+<!-- Materialize JS Framework -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script
   src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
   crossorigin="anonymous"></script>
-<script src="../public/js/results.js"></script>
+<script src="/js/results.js"></script>
