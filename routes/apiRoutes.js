@@ -20,14 +20,14 @@ module.exports = function(app) {
   });
 
   // -------------- Journal Entry Routes --------------------
-  // Get all journals (READ)
+  // Get all journals (READ) from the user
   app.get("/api/entries/", function(req, res) {
     db.JournalEntries.findAll({}).then(function(dbJournalEntries) {
       res.json(dbJournalEntries);
     });
   });
 
-  // Create new entry (CREATE)
+  // Create new entry (CREATE) for specific user
   app.post("/api/entries/", function(req, res) {
     //db.tableName.create(req.body).then(function(dbName) {});
     db.JournalEntries.create(req.body).then(function(dbJournalEntries) {
@@ -37,6 +37,8 @@ module.exports = function(app) {
       res.json(dbJournalEntries);
     });
   });
+
+  // Find one specific post
 };
 
 // RESTful: POST GET PUT DELETE
