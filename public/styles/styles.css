@@ -1,3 +1,36 @@
 .list-group-item {
   line-height: 2.5;
 }
+/* GENERAL ===================================================================================================================== */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+/* INTRO ===================================================================================================================== */  
+#logo-name {
+  font-family: 'Righteous', cursive;
+  letter-spacing: 8px;
+  color: #16404F;
+  text-align: center;
+}
+#logo-container {
+ padding: 100px;
+ height: 100vh;
+}
+#logo-header {
+  margin-top: 10px;
+}
+.dropdown-content li>a, .dropdown-content li>span {
+  font-size: 16px;
+  color: #26a69a;
+  display: block;
+  line-height: 22px;
+  padding: 34px 21px;
+}
+/* RESULTS ===================================================================================================================== */
+
+

@@ -53,3 +53,10 @@ Plan
 3. If we re-use existing example files (comment out working code for reference and delete when component is working)
 
 4. Assign TODOs based on need and order to get MVP functioning
+
+## Mike's procedure for atempting to get models to work
+
+1. Update config.js (password)
+2. Update env (database)
+3. Update schema.sql file (reflectdb)
+4. Changed examples.js file (re-named to jounralEntries.js / Changed model format)

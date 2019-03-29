@@ -1,2 +1,7 @@
 models/index.js
 node_modules
+public/js/intro.js
+public/js/modals.js
+views/intro.handlebars
+views/modals.handlebars
+views/results.handlebars

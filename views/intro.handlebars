@@ -1,0 +1,287 @@
+<nav>
+    <div class="nav-wrapper white" id="nav-bar">
+        <a href="#" class="brand-logo center white text-black" id="logo-header"><img src="../images/icons8-invert-selection-filled-48.png"></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down ">
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger btn ' href='#' data-target='dropdown1'>  <i class="material-icons">menu</i></a>
+
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class="dropdown-content ">
+                <li><a href="/">Home</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/about">About</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </ul>
+    </div>
+</nav>      
+<div id="intro-general-container">
+    <div class="row" >
+        <div class="container" id="logo-container">
+            <h1 id="logo-name">Reflect</h1>
+
+            <div class="row">
+                <div class="col s12 m6 l3"><p></p></div>
+                <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-new-user-modal"><i class="material-icons"> person</i> Create</a></p></div>
+                <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-existing-user-modal">Login</a></div></p></div>
+                <div class="col s12 m6 l3"><p></p></div>
+            </div>
+        </div>
+    </div>
+    
+</div>  
+          
+</div>
+<form action="/api/journalEntries" method="post">
+    <!-- New User -->
+    <div id="intro-new-user-modal" class="modal">
+        <div class="modal-content container">
+            <!-- First -->
+            <h4 class="center">New User</h4>
+            <!-- Second -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="intro-new-name" type="text" class="validate">
+                    <label for="intro-new-name">Create Username</label>
+                </div>
+            </div>
+            <!-- Third -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="intro-new-password" type="text" class="validate">
+                    <label for="intro-new-password">Create Password</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="center col s12">
+                <a id="intro-new-user-button" href="#intro-existing-user-modal" class="modal-close waves-effect waves-green btn modal-trigger">Next</a>
+            </div>
+        </div>
+    </div>
+    <!-- Log into existing user -->
+    <div id="intro-existing-user-modal" class="modal">
+        <div class="modal-content container">
+            <!-- First -->
+            <h4 class="center">Existing User</h4>
+            <!-- Second -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="intro-existing-name" type="text" class="validate">
+                    <label for="intro-existing-name">Username</label>
+                </div>
+            </div>
+            <!-- Third -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="intro-existing-password" type="text" class="validate">
+                    <label for="intro-existing-password">Password</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="center col s12">
+                <a id="intro-existing-user-button" href="#intro-user-emotions-modal" class="modal-close waves-effect waves-green btn modal-trigger" id="login-existing-button">Next</a>
+            </div>
+        </div>
+    </div>
+    <!-- EMOTIONS -->
+    <div id="intro-user-emotions-modal" class="modal">
+        <div class="modal-content container">
+            <h4 class="center">How are you feeling?</h4>
+            <!-- Row below added to adjust size in CSS later -->
+            <div class="row" id="intro-above-emoji-space">
+                <div class="col s12"></div>
+            </div>
+            <!-- Row Created to hold Emoji faces -->
+            <div class="row center" id="intro-emoji-space">
+                <div class="col s4">
+                    <div class="row center">
+                        <div class="col s12">
+                            <i class="large material-icons center">mood</i>
+                        </div>
+                        <div class="col s12">
+                            happy
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="row center">
+                        <div class="col s12">
+                            <i class="large material-icons center">face</i>
+                        </div>
+                        <div class="col s12">
+                            okay
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="row center">
+                        <div class="col s12">
+                            <i class="large material-icons center">mood_bad</i>
+                        </div>
+                        <div class="col s12">
+                            bad
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 center"> 
+                    <!-- below class "intro-emotions-form" added to center radio buttons in CSS later -->
+                    <div class="row center intro-emotions-form">
+                        <p class="col s4 center">
+                            <input name="group1" type="radio" value="happy" id="emotion1"/>
+                            <label for="emotion1"></label>
+                        </p>
+                        <p class="col s4 center">
+                            <input name="group1" type="radio" value="okay" id="emotion2"/>
+                            <label for="emotion2"></label>
+                        </p>
+                        <p class="col s4 center">
+                            <input name="group1" type="radio" value="bad" id="emotion3"/>
+                            <label for="emotion3"></label>
+                        </p>
+                    </div>
+                </div>
+                <div class="col s12 center">
+                    <a href="#intro-user-time-modal" class="modal-close waves-effect waves-green btn modal-trigger">Next</a>
+                </div>
+            </div>
+            <!-- Row below made to adjust size in CSS Later -->
+            <div class="row" id="intro-below-emoji-space">
+                <div class="col s12"></div>
+            </div>
+        </div>
+    </div>
+    <!-- TIME -->
+    <div id="intro-user-time-modal" class="modal">
+        <div class="modal-content container">
+            <h4 class="center">What is your reflection about?</h4>
+            <!-- Row below added to adjust size in CSS later -->
+            <div class="row" id="intro-above-time-space">
+                <div class="col s12"></div>
+            </div>
+            <!-- Row Created to hold Emoji faces -->
+            <div class="row center" id="intro-time-space">
+                <div class="col s4">
+                    <div class="row center">
+                        <div class="col s12">
+                            <i class="large material-icons center">event_busy</i>
+                        </div>
+                        <div class="col s12">
+                            past
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="row center">
+                        <div class="col s12">
+                            <i class="large material-icons center">event_available</i>
+                        </div>
+                        <div class="col s12">
+                            present
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="row center">
+                        <div class="col s12">
+                            <i class="large material-icons center">event</i>
+                        </div>
+                        <div class="col s12">
+                            future
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 center"> 
+                    <!-- below class "intro-emotions-form" added to center radio buttons in CSS later -->
+                    <div class="row center intro-time-form">
+                        <p class="col s4 center">
+                            <input name="group2" type="radio" value="past" id="time1"/>
+                            <label for="time1"></label>
+                        </p>
+                        <p class="col s4 center">
+                            <input name="group2" type="radio" value="present" id="time2"/>
+                            <label for="time2"></label>
+                        </p>
+                        <p class="col s4 center">
+                            <input name="group2" type="radio" value="future" id="time3"/>
+                            <label for="time3"></label>
+                        </p>
+                    </div>
+                </div>
+                <div class="col s12 center">
+                    <a href="#intro-user-journal-modal" class="modal-close waves-effect waves-green btn modal-trigger">Next</a>
+                </div>
+            </div>
+            <!-- Row below made to adjust size in CSS Later -->
+            <div class="row" id="intro-below-emoji-space">
+                <div class="col s12"></div>
+            </div>
+        </div>
+    </div>
+
+{{!-- Journal Modal --}}
+    <div id="intro-user-journal-modal" class="modal">
+        <div class="modal-content container">
+            <h4 class="center">What are your thoughts?</h4>
+        </div>
+        {{!-- row one --}}
+        <div class="row" id="intro-journal-emoji-space">
+            <div class="col s12"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">create</i>
+                    <input id="title-name" type="text" class="validate">
+                    <label for="title-name" id="journalEntryTitle">Title:</label>
+                </div>
+            </div>
+            <div class="col s6"></div>
+            <div class="row">
+                <div class="input-field center col s12">
+                    <i class="material-icons prefix">subject</i>
+                    <textarea name="journalEntry" id="journalEntry" class="materialize-textarea"></textarea>
+                    <label for="journalEntry">Thoughts:</label>
+                </div>
+            </div>
+            <div class="row center">
+                <a id="intro-submit-entry" href="#!" class="modal-close waves-effect waves-green btn modal-trigger" data-length="300">Submit</a>
+            </div>
+        </div>
+        <div class="row" id="intro-below-journal-space">
+            <div class="col s12"></div>
+        </div>
+    </div>
+</form>
+
+<footer class="page-footer grey lighten-3">
+    <div class="container ">
+    <div class="row">
+        <div class="col l6 s12">
+        <h5 class="black-text">Creators</h5>
+        <p>
+            <ul class="black-text">
+                <li><a href="https://github.com/notmattcaro">Matthew Caro</a></li>
+                <li><a href="https://github.com/IrvinGutierrez6117">Irvin Gutierrez</a></li>
+                <li><a href="https://github.com/tracynle">Tracy Le</a></li>
+                <li><a href="https://github.com/sweetmike">Michael Rivera</a></li>
+            </ul>
+        </p>
+        </div>
+        
+    </div>
+    </div>
+    <div class="footer-copyright blue-grey lighten-2">
+    <div class="container ">
+    © 2019 Copyright
+    </div>
+    </div>
+</footer>
+            
+<!-- End of body, entering scripts  -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<!-- Materialize JS Framework -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/js/intro.js"></script>

@@ -1,26 +1,43 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // --------------- User Routes ----------------------------
+  // Get all users (READ)
+  app.get("/api/users", function(req, res) {
+    db.Users.findAll({}).then(function(dbUsers) {
+      res.json(dbUsers);
+    });
+  });
+  // Create new user > Add to db (CREATE)
+  app.post("/api/users", function(req, res) {
+    //db.tableName.create(req.body).then(function(dbName) {});
+    db.Users.create(req.body).then(function(dbUsers) {
+      // console.log(res.body);
+      console.log(dbUsers);
+      // console.log(res);
+      res.json(dbUsers);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // -------------- Journal Entry Routes --------------------
+  // Get all journals (READ)
+  app.get("/api/entries/", function(req, res) {
+    db.JournalEntries.findAll({}).then(function(dbJournalEntries) {
+      res.json(dbJournalEntries);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.json(dbExample);
+  // Create new entry (CREATE)
+  app.post("/api/entries/", function(req, res) {
+    //db.tableName.create(req.body).then(function(dbName) {});
+    db.JournalEntries.create(req.body).then(function(dbJournalEntries) {
+      // console.log(res.body);
+      console.log(dbJournalEntries);
+      // console.log(res);
+      res.json(dbJournalEntries);
     });
   });
 };
+
+// RESTful: POST GET PUT DELETE
+// DB: CRUD --> create read update delete

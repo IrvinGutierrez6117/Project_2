@@ -1,34 +1,35 @@
-# Express App Starter [![Build Status](https://travis-ci.com/bburrier/express-ci-starter.svg?branch=master)](https://travis-ci.com/bburrier/express-ci-starter)
+# Reflect
 
-Simple Node/Express CRUD application and scaffolding to help students quickly get started with a new project, with tests and CI support.
+Reflect is an application that simplifies journaling and recording your everyday thoughts and emotions you may have througout the day, week, and to a year. It can help you start your day right by:
 
-- Node + Express
-- Sequelize
-- Handlebars
-- Mocha + Chai
-- Travis CI
+1. Identifying how you feel by picking an emotion
+2. Keeping track of your thoughts by writing your thoughts down 
 
-## Development Setup
+## Objective
+Reflect’s goal is to make your job easier by helping you keep track of your mental health, well-being, and increase your self-awareness. You will create an account so you can start logging your day right away.
 
-```
-# Install packages
-npm install
+## Features
+Reflect will ask you questions like “How are you feeling today?” and followed by “Write about it” so that you can jog them all down. 
 
-# Initialize local database
-mysql < models/schema.sql
+Once your entries have been logged it will be stored in a database and be shown in a pie chart, which will visually show your moods, thoughts, and habits in percentages. You will be given words of encouragement, funny gifs, and some articles that references some areas you may struggle with, and what you may need to improve on like fitness, diet, breathing exercises, or doing fun activities. 
 
-# Create .env, update as needed
-cp .env.example .env
+## Why is journaling important?
+Nowadays, writing in a journal can be hard and be overwhelming. However, implementing a journal is proven to help. University of Rochester Medical Center states that journaling can:
+ > “manage anxiety, reduce stress, and cope with depression. Journaling helps control your symptoms and improve your mood by helping you prioritize problems, fears, and concerns tracking any symptoms day-to-day so that you can recognize triggers and learn ways to better control them providing an opportunity for positive self-talk and identifying negative thoughts and behaviors.”
 
-# Run tests
-npm test
+We hope that you may achieve a healthy mind and heart with the help of Reflect. 
 
-# Start node application
-npm start
-```
+## Technologies that will be used:
+- Node
+- MySQL
+- Sequelize ORM
+- API’s
+- animate.css
 
-## Heroku Deployment
-1. Create application [https://devcenter.heroku.com/articles/git](https://devcenter.heroku.com/articles/git)
-2. Add on JawsDB [https://devcenter.heroku.com/articles/jawsdb](https://devcenter.heroku.com/articles/jawsdb)
+## Creators
+- Tracy Le
+- Matthew Caro
+- Irvin Gutierrez 
+- Michael Rivera
 
 
