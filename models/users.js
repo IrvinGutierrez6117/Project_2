@@ -3,5 +3,11 @@ module.exports = function(sequelize, DataTypes) {
     userName: DataTypes.TEXT,
     password: DataTypes.TEXT
   });
+
+  // Users.associate = function(models) {
+  //   Users.hasMany(models.JournalEntries, {
+  //     onDelete: "cascade"
+  //   });
+  // };
   return Users;
 };

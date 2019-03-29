@@ -72,31 +72,9 @@ var API = {
         data: JSON.stringify(newPost)
         });
     },
-// *** Don't need to delete posts? ***
-// deleteExample: function(id) {
-//     return $.ajax({
-//     url: "api/examples/" + id,
-//     type: "DELETE"
-//     });
-// }
 };
 
 // ==================== User Functions ====================
-
-// -------- btn and input ids for user ----------
-// Create btn ID = #intro-new-user-modal
-// Login btn ID = #intro-existing-user-modal
-
-// New User Modal
-    // username input = #intro-new-name
-    // pword input = #intro-new-password
-    // btn = #intro-new-user-button
-
-// Existing User Modal
-    // username input = #intro-existing-name
-    // pword input = #intro-existing-password
-    // btn = #intro-existing-user-button
-// ---------------------------------------------
 
 // Function for gathering new user input and sending to API POST request
 var handleUserSubmit = function(event) {
@@ -157,8 +135,8 @@ var handleFormSubmit = function(event) {
   
     // Object for all newPost Data
     let newPost = {
-        emotion: parseInt(isRadioAnswer("group1")),
-        timeFrame: parseInt(isRadioAnswer("group2")),
+        emotion: isRadioAnswer("group1"),
+        timeFrame: isRadioAnswer("group2"),
         title: $("#title-name").val().trim(),
         body: $("#journalEntry").val().trim(),
         userId: currentUserId // searchUser API method in line 53
@@ -179,10 +157,13 @@ var handleFormSubmit = function(event) {
 
 // ============== Event listenters ==============
 
+// journal entry btn
 $("#intro-submit-entry").on("click", handleFormSubmit);
 
+// new user btn
 $("#intro-new-user-button").on("click", handleUserSubmit);
 
+// existing user btn
 $("#intro-existing-user-button").on("click", searchUserDb);
 
 
