@@ -2,6 +2,7 @@ models/index.js
 node_modules
 public/js/intro.js
 public/js/modals.js
+public/js/results.js
 views/intro.handlebars
 views/modals.handlebars
 views/results.handlebars

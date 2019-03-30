@@ -1,6 +1,6 @@
 // import { runInNewContext } from "vm";
 
-$(document).ready(function(){
+$(document).ready(function() {
     //initialize modal materialize
     $('.modal').modal();
     //initialize textarea materialize
