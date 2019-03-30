@@ -5,21 +5,25 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("intro");
   });
+  // Loads intro page
+  app.get("/postedResults", function(req, res) {
+    res.render("results");
+  });
   // Load one result onto the page and pass in user by id
   app.get("/results/:id", function(req, res) {
-    db.tableName
-      .findOne({ where: { id: req.params.id } })
-      .then(function(dbtableResults) {
-        res.render("oneResult", {
-          oneResult: dbtableResults
-        });
+    db.JournalEntries.findOne({ where: { id: req.params.id } }).then(function(
+      dbJournalEntries
+    ) {
+      res.render("oneResult", {
+        oneResult: dbJournalEntries
       });
+    });
   });
   // Loads all results onto the page
   app.get("/results/", function(req, res) {
-    db.tableName.findAll({}).then(function(dbtableResults) {
+    db.JournalEntries.findAll({}).then(function(dbJournalEntries) {
       res.render("allResults", {
-        allResults: dbtableResults
+        allResults: dbJournalEntries
       });
     });
   });

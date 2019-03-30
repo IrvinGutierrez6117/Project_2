@@ -1,7 +1,7 @@
 {
-  "name": "Project_2",
+  "name": "project_2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Reflect is an application that simplifies journaling and recording your everyday thoughts and emotions you may have througout the day, week, and to a year. It can help you start your day right by:",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -14,6 +14,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
     "sequelize": "^4.41.2"
   },
@@ -26,5 +27,21 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IrvinGutierrez6117/Project_2.git"
+  },
+  "keywords": [
+    "project",
+    "2"
+  ],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/IrvinGutierrez6117/Project_2/issues"
+  },
+  "homepage": "https://github.com/IrvinGutierrez6117/Project_2#readme"
 }

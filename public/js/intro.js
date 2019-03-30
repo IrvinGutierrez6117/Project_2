@@ -1,21 +1,18 @@
 // import { runInNewContext } from "vm";
 
-$(document).ready(function(){
+$(document).ready(function() {
     //initialize modal materialize
     $('.modal').modal();
     //initialize textarea materialize
     $('input#input_text, textarea#textarea2').characterCounter();
     // Form submit button entry
     // $("#intro-submit-entry").on("click", submitEntry);
-    $(".dropdown-trigger").dropdown({
-        coverTrigger: false,
-        hover: true
-    });
+   
 });
 
 // Flag for logged in user
 var isLoggedIn = false;
-// currentUserId declared. Updated from line 51
+// currentUserId declared. Updated from line 52
 var currentUserId;
 
 // The API object contains methods for each kind of request we'll make
@@ -90,9 +87,13 @@ var handleUserSubmit = function(event) {
     //   alert("You must enter an example text and description!");
     //   return;
     // }
-    
-    API.saveNewUser(newUser).then(function() {
-        console.log(newUser);
+
+    // The response is the user information from the db
+    // We are getting the response since it contains the user's id that is made
+    // and user's information is saved with the id associated with their post
+    API.saveNewUser(newUser).then(function(response) {
+        console.log(response); 
+        currentUserId = response.id;
     });
     
 };
@@ -129,7 +130,7 @@ var handleFormSubmit = function(event) {
 
     // Stores username in variable for newPost Object
     var currentUserName = "";
-    if (isLoggedIn = true) {
+    if (isLoggedIn === true) {
         currentUserName = $("#intro-existing-name").val().trim();
     }
   
@@ -139,7 +140,8 @@ var handleFormSubmit = function(event) {
         timeFrame: isRadioAnswer("group2"),
         title: $("#title-name").val().trim(),
         body: $("#journalEntry").val().trim(),
-        userId: currentUserId // searchUser API method in line 53
+        UserId: currentUserId // searchUser API method in line 52. 
+        // Now currentUserId has an id because it received a response from the db
     };
   
     // TODO: Get if BLANK condition working
@@ -148,9 +150,9 @@ var handleFormSubmit = function(event) {
     //   return;
     // }
     
-    API.saveNewPost(newPost).then(function() {
+    API.saveNewPost(newPost).then(function(response) {
         console.log(newPost);
-        console.log(currentUserName);
+        console.log(response.id);
     });
  
   };
@@ -164,7 +166,7 @@ $("#intro-submit-entry").on("click", handleFormSubmit);
 $("#intro-new-user-button").on("click", handleUserSubmit);
 
 // existing user btn
-$("#intro-existing-user-button").on("click", searchUserDb);
+$("#intro-loggedin-user-button").on("click", searchUserDb);
 
 
 // TODO:  Would need to update entries modal with foreign keys

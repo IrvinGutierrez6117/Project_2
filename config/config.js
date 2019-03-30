@@ -10,7 +10,7 @@ module.exports = {
   },
   test: {
     username: "root",
-    password: "#Coolrunnings1993",
+    password: "Ngoc513*",
     database: "testdb",
     host: "localhost",
     dialect: "mysql",

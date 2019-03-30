@@ -1,38 +1,29 @@
 <nav>
     <div class="nav-wrapper white" id="nav-bar">
         <a href="#" class="brand-logo center white text-black" id="logo-header"><img src="../images/icons8-invert-selection-filled-48.png"></a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down ">
-            <!-- Dropdown Trigger -->
-            <a class='dropdown-trigger btn ' href='#' data-target='dropdown1'>  <i class="material-icons">menu</i></a>
-
-            <!-- Dropdown Structure -->
-            <ul id='dropdown1' class="dropdown-content ">
-                <li><a href="/">Home</a></li>
-                <li class="divider" tabindex="-1"></li>
-                <li><a href="/about">About</a></li>
-                <li class="divider" tabindex="-1"></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </ul>
     </div>
 </nav>      
+{{!-- Login and Create buttons --}}
 <div id="intro-general-container">
     <div class="row" >
         <div class="container" id="logo-container">
-            <h1 id="logo-name">Reflect</h1>
+            <h1 id="logo-name" class="col s12">Reflect</h1>
 
             <div class="row">
-                <div class="col s12 m6 l3"><p></p></div>
-                <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-new-user-modal"><i class="material-icons"> person</i> Create</a></p></div>
-                <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-existing-user-modal">Login</a></div></p></div>
-                <div class="col s12 m6 l3"><p></p></div>
+                <div class="col s12">
+                    <div class="row">
+                        <div class="col s12 m6 l3"><p></p></div>
+                        <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-new-user-modal"><i class="material-icons">person</i> Create</a></p></div>
+                        <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-existing-user-modal">Login</a></div></p></div>
+                        <div class="col s12 m6 l3"><p></p></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
 </div>  
-          
-</div>
+        
+{{!-- Modal form --}}
 <form action="/api/journalEntries" method="post">
     <!-- New User -->
     <div id="intro-new-user-modal" class="modal">
@@ -53,14 +44,39 @@
                     <label for="intro-new-password">Create Password</label>
                 </div>
             </div>
+            
         </div>
         <div class="row">
             <div class="center col s12">
-                <a id="intro-new-user-button" href="#intro-existing-user-modal" class="modal-close waves-effect waves-green btn modal-trigger">Next</a>
+                <a id="intro-new-user-button" href="#intro-user-created-modal" class="modal-close waves-effect waves-green btn modal-trigger">Next</a>
             </div>
         </div>
+       
     </div>
-    <!-- Log into existing user -->
+     {{!-- Modal pop up after user creates an account --}}
+    <div id="intro-user-created-modal" class="modal">
+        <div class="modal-content container">
+             <!-- Row below added to adjust size in CSS later -->
+            <div class="row" id="intro-above-emoji-space">
+                <div class="col s12"></div>
+            </div>
+            <h4 class="center">Thank you for joining Reflect!</h4>
+            <p class="center">Click next to start recording your Reflections of the day.</p>
+            <!-- Row below added to adjust size in CSS later -->
+            <div class="row" id="intro-above-emoji-space">
+                <div class="col s12"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="center col s12">
+                <a id="intro-user-created-button" href="#intro-user-emotions-modal" class="modal-close waves-effect waves-green btn modal-trigger" id="login-existing-button">Next</a>
+            </div>
+        </div>
+        <div class="row" id="intro-above-emoji-space">
+                <div class="col s12"></div>
+            </div>
+    </div>
+    <!-- Existing user -->
     <div id="intro-existing-user-modal" class="modal">
         <div class="modal-content container">
             <!-- First -->
@@ -82,7 +98,7 @@
         </div>
         <div class="row">
             <div class="center col s12">
-                <a id="intro-existing-user-button" href="#intro-user-emotions-modal" class="modal-close waves-effect waves-green btn modal-trigger" id="login-existing-button">Next</a>
+                <a id="intro-loggedin-user-button" href="#intro-user-emotions-modal" class="modal-close waves-effect waves-green btn modal-trigger" id="login-existing-button">Next</a>
             </div>
         </div>
     </div>
@@ -130,15 +146,15 @@
                     <!-- below class "intro-emotions-form" added to center radio buttons in CSS later -->
                     <div class="row center intro-emotions-form">
                         <p class="col s4 center">
-                            <input name="group1" type="radio" value="happy" id="emotion1"/>
+                            <input name="group1" type="radio" value="1" id="emotion1"/>
                             <label for="emotion1"></label>
                         </p>
                         <p class="col s4 center">
-                            <input name="group1" type="radio" value="okay" id="emotion2"/>
+                            <input name="group1" type="radio" value="2" id="emotion2"/>
                             <label for="emotion2"></label>
                         </p>
                         <p class="col s4 center">
-                            <input name="group1" type="radio" value="bad" id="emotion3"/>
+                            <input name="group1" type="radio" value="3" id="emotion3"/>
                             <label for="emotion3"></label>
                         </p>
                     </div>
@@ -197,15 +213,15 @@
                     <!-- below class "intro-emotions-form" added to center radio buttons in CSS later -->
                     <div class="row center intro-time-form">
                         <p class="col s4 center">
-                            <input name="group2" type="radio" value="past" id="time1"/>
+                            <input name="group2" type="radio" value="1" id="time1"/>
                             <label for="time1"></label>
                         </p>
                         <p class="col s4 center">
-                            <input name="group2" type="radio" value="present" id="time2"/>
+                            <input name="group2" type="radio" value="2" id="time2"/>
                             <label for="time2"></label>
                         </p>
                         <p class="col s4 center">
-                            <input name="group2" type="radio" value="future" id="time3"/>
+                            <input name="group2" type="radio" value="3" id="time3"/>
                             <label for="time3"></label>
                         </p>
                     </div>
@@ -247,11 +263,37 @@
                 </div>
             </div>
             <div class="row center">
-                <a id="intro-submit-entry" href="#!" class="modal-close waves-effect waves-green btn modal-trigger" data-length="300">Submit</a>
+                <a id="intro-submit-entry" href="#intro-logout-or-results" class="modal-close waves-effect waves-green btn modal-trigger" data-length="300">Submit</a>
             </div>
         </div>
         <div class="row" id="intro-below-journal-space">
             <div class="col s12"></div>
+        </div>
+    </div>
+    <div id="intro-logout-or-results" class="modal">
+        <div class="container center">
+            <div class="row">
+                <div class="col s12"></div>
+            </div>
+            <row class="center">
+                <div class="col s12">
+                    <h3>Great Reflection!</h3>  
+                </div>
+            </row>
+            <div class="row">
+                <div class="col s12"></div>
+            </div>
+            <div class="row center">
+                <div class="col s6">
+                    <a href="/postedResults" id="intro-view-results" class="center modal-close waves-effect waves-green btn modal-trigger">results</a>
+                </div>
+                <div class="col s6">
+                    <a href="/" id="intro-logout-user" class="center modal-close waves-effect waves-green btn modal-trigger">logout</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12"></div>
+            </div>
         </div>
     </div>
 </form>
@@ -263,9 +305,9 @@
         <h5 class="black-text">Creators</h5>
         <p>
             <ul class="black-text">
+                <li><a href="https://github.com/tracynle">Tracy Le</a></li>
                 <li><a href="https://github.com/notmattcaro">Matthew Caro</a></li>
                 <li><a href="https://github.com/IrvinGutierrez6117">Irvin Gutierrez</a></li>
-                <li><a href="https://github.com/tracynle">Tracy Le</a></li>
                 <li><a href="https://github.com/sweetmike">Michael Rivera</a></li>
             </ul>
         </p>
@@ -274,7 +316,7 @@
     </div>
     </div>
     <div class="footer-copyright blue-grey lighten-2">
-    <div class="container ">
+    <div class="container center">
     © 2019 Copyright
     </div>
     </div>
