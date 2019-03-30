@@ -16,6 +16,9 @@ main {
   letter-spacing: 8px;
   color: #16404F;
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 30px;
 }
 #logo-container {
  padding: 100px;
@@ -32,5 +35,20 @@ main {
   padding: 34px 21px;
 }
 /* RESULTS ===================================================================================================================== */
+#piechart {
+  margin-top: 70px;
+  background-color: white;
+}
 
+#test-center {
+  text-align: center;
+  background-color: #e0e0e0;
+}
 
+.title {
+  background-color: white;
+}
+
+.percent {
+  font-size: 60px;
+}

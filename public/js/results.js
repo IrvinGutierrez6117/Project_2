@@ -1,4 +1,14 @@
 $(document).ready(function() {
+    //initialize modal materialize
+    $(".modal").modal();
+    //initialize textarea materialize
+    $("input#input_text, textarea#textarea2").characterCounter();
+  
+    // Dropdwon menu
+    $(".dropdown-trigger").dropdown({
+      coverTrigger: false,
+      hover: true
+    });
   // =========== Problem we need to solve -- Get current user & database info we can use ==========
 
   // =========== Global Variables for emotions, time, and journal functions ==========
@@ -53,5 +63,72 @@ $(document).ready(function() {
     return past && present && future; // returns new decimal values that total === 1
   }
 
-
 });
+// Make a function to submit Form to Results page
+
+//Make an AJAX call to the API routes to get results back
+var currentUserId;
+var API = {
+  getEntries: function(userData) {
+    return $.ajax({
+      type: "GET",
+      url: "api/entries/",
+      data: JSON.stringify(userData)
+    });
+  }
+};
+
+// Pie Chart
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawPieChart);
+
+function drawPieChart() {
+  var pieData = google.visualization.arrayToDataTable([
+    ["Emotions", "Number"],
+    ["Happy", 11],
+    ["Okay", 2],
+    ["Bad", 5]
+  ]);
+
+  var options = {
+    title: "My Reflections",
+    width: 900,
+    height: 550,
+    title: "My Emotions",
+    is3D: true
+  };
+
+  var chart = new google.visualization.PieChart(
+    document.getElementById("piechart")
+  );
+
+  chart.draw(pieData, options);
+}
+
+// Bar Data
+google.charts.load("current", { packages: ["corechart", "bar"] });
+google.charts.setOnLoadCallback(drawAxisTickColors);
+
+function drawAxisTickColors() {
+  var barData = google.visualization.arrayToDataTable([
+    ["Time Frames", "What you have been thinking about"],
+    ["Past", 2],
+    ["Present", 7],
+    ["Future", 9]
+  ]);
+
+  var options = {
+    chart: {
+      title: "Your Thoughts",
+      width: 900,
+      height: 550
+    },
+    bars: "horizontal" // Required for Material Bar Charts.
+  };
+
+  var chart = new google.charts.Bar(
+    document.getElementById("barchart_material")
+  );
+
+  chart.draw(barData, google.charts.Bar.convertOptions(options));
+}

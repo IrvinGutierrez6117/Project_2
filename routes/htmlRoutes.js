@@ -12,17 +12,19 @@ module.exports = function(app) {
   // Load one result onto the page and pass in user by id
   app.get("/results/:id", function(req, res) {
     db.JournalEntries.findOne({ where: { id: req.params.id } }).then(function(
-      dbJournalEntries
+      dbJournalEntry
     ) {
-      res.render("oneResult", {
-        oneResult: dbJournalEntries
+      res.render("results", {
+        allResults: [dbJournalEntry] //in a bracket so it is an array of one entry, otherwise it would fail
+        // to loop because it is not in an array
+        // you want to loop through it no matter how many things are in there or none.
       });
     });
   });
   // Loads all results onto the page
   app.get("/results/", function(req, res) {
     db.JournalEntries.findAll({}).then(function(dbJournalEntries) {
-      res.render("allResults", {
+      res.render("results", {
         allResults: dbJournalEntries
       });
     });
