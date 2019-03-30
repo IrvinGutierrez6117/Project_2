@@ -82,11 +82,18 @@ var handleUserSubmit = function(event) {
         password: $("#intro-new-password").val().trim()
     };
     
-    // TODO: get if BLANK condition working
-    // if (!(newPost.text && newPost.description)) {
-    //   alert("You must enter an example text and description!");
-    //   return;
-    // }
+    if (!(newUser.userName)) {
+      alert("You must enter a username. Please try again");
+      return;
+    }
+    else if (!(newUser.password )) {
+        alert("You must enter password. Please try again");
+        return;
+    }
+
+    // TODO: if inpuit is blank it stops function but continues 
+      // to next modal. Need to make it stop
+
 
     // The response is the user information from the db
     // We are getting the response since it contains the user's id that is made
@@ -107,7 +114,45 @@ var searchUserDb = function(event) {
         password: $("#intro-existing-password").val().trim()
     };
 
+    if (!(existingUser.userName)) {
+        alert("You must enter a username. Please try again");
+        return;
+      }
+      else if (!(existingUser.password )) {
+          alert("You must enter password. Please try again");
+          return;
+      }
+
+      // TODO: if inpuit is blank it stops function but continues 
+      // to next modal. Need to make it stop
+
     API.searchUser(existingUser);
+};
+
+// Logs in New User after creating username and password and 
+// choosing to create a reflection
+var loginNewUser = function(event) {
+    event.preventDefault();
+
+    // Needed to re-use existingUser variable in order to 
+    // run API.searchUser
+    let existingUser = {
+        userName: $("#intro-new-name").val().trim(),
+        password: $("#intro-new-password").val().trim()
+    };
+
+    API.searchUser(existingUser);
+};
+
+// Logs out user (Flips isLoggedIn flag to false & empties currentUserId variable)
+var logoutUser = function(event) {
+    event.preventDefault();
+
+    isLoggedIn = false;
+    currentUserId = "";
+
+    console.log("Logged in flag = " + isLoggedIn);
+    console.log("Current user logged out. currentUserID variable = <" + currentUserId + ">");
 };
 
 // ============== Journal Entry Functions ===================
@@ -168,5 +213,8 @@ $("#intro-new-user-button").on("click", handleUserSubmit);
 // existing user btn
 $("#intro-loggedin-user-button").on("click", searchUserDb);
 
+// "Next" btn in "Thank you..." modal after New User modal
+$("#intro-user-created-button").on("click", loginNewUser);
 
-// TODO:  Would need to update entries modal with foreign keys
+// "Logout" btn in "Great Reflection" modal
+$("#intro-logout-user").on("click", logoutUser);
