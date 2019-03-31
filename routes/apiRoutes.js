@@ -27,19 +27,19 @@ module.exports = function(app) {
     });
   });
 
-  // ===== Matts Stuff =====
+  // ===== Matt & Tracy's Stuff =====
   app.get("/api/entries/journals", function(req, res) {
-    console.log(req.body.userId);
+    console.log("PRINT TEST");
+    console.log(req.query.UserId);
     db.JournalEntries.findAll({
       where: {
-        UserId: req.body.userId
+        UserId: req.query.UserId
       }
     }).then(function(dbOfJournalEntries) {
-      console.log("this is the response :D " + dbOfJournalEntries);
       res.json(dbOfJournalEntries);
     });
   });
-  // ===== End of Matts Stuff =====
+  // ===== End of Matt & Tracy's Stuff =====
 
   // Create new entry (CREATE) for specific user
   app.post("/api/entries/", function(req, res) {
