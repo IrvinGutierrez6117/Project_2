@@ -27,6 +27,20 @@ module.exports = function(app) {
     });
   });
 
+  // ===== Matts Stuff =====
+  app.get("/api/entries/journals", function(req, res) {
+    console.log(req.body.userId);
+    db.JournalEntries.findAll({
+      where: {
+        UserId: req.body.userId
+      }
+    }).then(function(dbOfJournalEntries) {
+      console.log("this is the response :D " + dbOfJournalEntries);
+      res.json(dbOfJournalEntries);
+    });
+  });
+  // ===== End of Matts Stuff =====
+
   // Create new entry (CREATE) for specific user
   app.post("/api/entries/", function(req, res) {
     //db.tableName.create(req.body).then(function(dbName) {});
@@ -37,8 +51,6 @@ module.exports = function(app) {
       res.json(dbJournalEntries);
     });
   });
-
-  // Find one specific post
 };
 
 // RESTful: POST GET PUT DELETE
