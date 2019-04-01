@@ -19,7 +19,7 @@ $(document).ready(function() {
     // =========== Global Variables for emotions, time, and journal functions ==========
 
     // ===== temporary user Id until mike knows how to =====
-    var foreignKeyUserId = 1;
+    var foreignKeyUserId = 8;
     // ===== emotions var =====
     var happy = [];
     var okay = [];
@@ -29,8 +29,8 @@ $(document).ready(function() {
     var present = [];
     var future = [];
     // ===== journal var =====
-    var title = []; // maybe we don't need?
-    var journal = []; // maybe we don't need?
+    var title = []; 
+    var journal = []; 
 
     // ========== Global Functions for emotions, time, and joural ==========
     function emotions(x, y, z) { // x, y, z === happy, okay, bad
@@ -63,6 +63,16 @@ $(document).ready(function() {
     getEntries: function(argForeignKey) {
       return $.ajax({
         type: "GET",
+        url: "api/entries/journals/body",
+        data: "UserId=" + argForeignKey
+      })
+    }
+  };
+
+  var IPA = {
+    getEntries: function(argForeignKey) {
+      return $.ajax({
+        type: "GET",
         url: "api/entries/journals",
         data: "UserId=" + argForeignKey
       })
@@ -75,6 +85,7 @@ $(document).ready(function() {
         // ===== RETURNS DATA TO REFERENCE =====
         console.log(data); 
 
+        // ========== THIS INPUTS EMOTIONS INFORMATION INTO THE PIE CHART ==========
         console.log("\n" + "The below is about Emotions" + "\n");
         for (let x = 0; x < data.length; x++) {
           const currentUserFK = data[x];
@@ -92,6 +103,7 @@ $(document).ready(function() {
         console.log(okay);
         console.log(bad);
 
+        // ========== THIS INPUTS TIME INFORMATION INTO THE RESULTS GRAPH ==========
         console.log("The below is about Time");
         for (let y = 0; y < data.length; y++) {
           const currentUserFK = data[y];
@@ -109,14 +121,38 @@ $(document).ready(function() {
         console.log(present);
         console.log(future);
         
+        // ========== THIS INPUTS JOURNAL HTML TO THE RESULTS PAGE ==========
         console.log("\n" + "The below is about Journals" + "\n");
         for (let z = 0; z < data.length; z++) {
           const currentUserFK = data[z];
           title.push(currentUserFK.title);
           journal.push(currentUserFK.body);
         }
-        console.log(title);
-        console.log(journal);
+        console.log(title); //title should now be an array of all titles
+        console.log(journal); //journal should be an array of all journals
+
+        for (let a = 0; a < data.length; a++) {
+          const userJournals = data[a];
+          var journalsHolder = document.getElementById("results-journal-rendering"); //grabs container
+          $("#results-journal-rendering").prepend(
+            '<div class="row grey lighten-3" id="journal entry ' + a + '">' +  //IF WORKS KEEP IT'S IMPORTANT
+              '<div class="col s12"></div>' +
+              '<div class="row container">' +
+                '<div id="results-title" class="col s3">' + 
+                  '<h5><strong class="teal-text text-lighten-2">Title#' + a + ':</strong></h5>' + '<div>' + title[a] + '</div>' +
+                '</div>' +
+                '<div class="col s9"></div>' +
+              '</div>' + 
+              '<div class="col s12"></div>' +
+              '<div class="row">' +
+                '<div id="results-journals" class="col s12">' +
+                  '<h5><strong class="teal-text text-lighten-2">Journal#' + a + ':</strong></h5>' + '<div>' + journal[a] + '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="col s12"></div>' +
+            '</div>'
+          );
+        }
       },
       //** Below this will change the  */
       function(jqXHR, textStatus, errorThrown) {

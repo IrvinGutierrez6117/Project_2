@@ -33,12 +33,22 @@ module.exports = function(app) {
     console.log(req.query.UserId);
     db.JournalEntries.findAll({
       where: {
-        UserId: req.query.UserId
+        UserId: req.query.UserId // where the foreign key is
       }
     }).then(function(dbOfJournalEntries) {
       res.json(dbOfJournalEntries);
     });
   });
+
+  // app.get("/api/entries/journals/body", function(req, res) {
+  //   db.JournalEntries.findAll({
+  //     where: {
+  //       UserId: req.query.UserId
+  //     }
+  //   }).then(function(dbJournalEntriesStuff) {
+
+  //   });
+  // });
   // ===== End of Matt & Tracy's Stuff =====
 
   // Create new entry (CREATE) for specific user
