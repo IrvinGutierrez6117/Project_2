@@ -76,8 +76,8 @@ $(document).ready(function() {
         console.log(data); 
 
         console.log("\n" + "The below is about Emotions" + "\n");
-        for (let y = 0; y < data.length; y++) {
-          const currentUserFK = data[y];
+        for (let x = 0; x < data.length; x++) {
+          const currentUserFK = data[x];
           console.log(currentUserFK.emotion);
           if (currentUserFK.emotion == "1") {
             happy.push(currentUserFK.emotion);
@@ -93,8 +93,8 @@ $(document).ready(function() {
         console.log(bad);
 
         console.log("The below is about Time");
-        for (let z = 0; z < data.length; z++) {
-          const currentUserFK = data[z];
+        for (let y = 0; y < data.length; y++) {
+          const currentUserFK = data[y];
           console.log(currentUserFK.timeFrame);
           if (currentUserFK.timeFrame == "1") {
             past.push(currentUserFK.timeFrame);
@@ -108,14 +108,15 @@ $(document).ready(function() {
         console.log(past);
         console.log(present);
         console.log(future);
-
-        //
-        // console.log("\n" + "The below is about Journals" + "\n");
-        // for (let y = 0; y < data.length; y++) {
-        //   const currentUserFK = data[y];
-        //   console.log("Title: " + currentUserFK.title);
-        //   console.log("Body: " + currentUserFK.body);
-        // }
+        
+        console.log("\n" + "The below is about Journals" + "\n");
+        for (let z = 0; z < data.length; z++) {
+          const currentUserFK = data[z];
+          title.push(currentUserFK.title);
+          journal.push(currentUserFK.body);
+        }
+        console.log(title);
+        console.log(journal);
       },
       //** Below this will change the  */
       function(jqXHR, textStatus, errorThrown) {
