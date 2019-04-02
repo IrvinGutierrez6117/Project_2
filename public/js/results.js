@@ -146,7 +146,7 @@ $(document).ready(function() {
               '<div class="col s12"></div>' +
               '<div class="row">' +
                 '<div id="results-journals" class="col s12">' +
-                  '<h5><strong class="teal-text text-lighten-2">Journal# ' + a + ':</strong></h5>' + '<div>' + journal[a] + '</div>' +
+                  '<h5><strong class="teal-text text-lighten-2">Journal# ' + (a + 1) + ':</strong></h5>' + '<div>' + journal[a] + '</div>' +
                 '</div>' +
               '</div>' +
               '<div class="col s12"></div>' +
