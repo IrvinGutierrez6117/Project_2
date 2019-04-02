@@ -1,32 +1,38 @@
 .list-group-item {
   line-height: 2.5;
 }
-/* GENERAL ===================================================================================================================== */
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-main {
-  flex: 1 0 auto;
-}
-/* INTRO ===================================================================================================================== */  
-#logo-name {
-  font-family: 'Righteous', cursive;
-  letter-spacing: 8px;
+/* Intro ===================================================================================================================== */
+/* PARALLAX  */
+.landing-font {
   color: #16404F;
-  text-align: center;
+}
+
+.landing-text {
   margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 30px;
 }
-#logo-container {
- padding: 100px;
- height: 100vh;
+
+.parallax {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
-#logo-header {
-  margin-top: 10px;
+
+.parallax.p1 {
+  background: url("../images/blank-business-composition-373076.jpg") no-repeat fixed 50% 0;
+  background-size: cover;
+  color: #fff;
+  height: 100vh;
+
 }
+
+.parallax.p2 {
+  background: url("../images/background-book-coffee-951230.jpg") no-repeat fixed 50% 0;
+  background-size: cover;
+  color: #fff;
+  height: 70vh;
+}
+
+/* Dropdown Menu =======*/
 .dropdown-content li>a, .dropdown-content li>span {
   font-size: 16px;
   color: #26a69a;
@@ -52,3 +58,4 @@ main {
 .percent {
   font-size: 60px;
 }
+

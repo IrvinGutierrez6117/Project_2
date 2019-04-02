@@ -19,7 +19,7 @@ $(document).ready(function() {
     // =========== Global Variables for emotions, time, and journal functions ==========
 
     // ===== temporary user Id until mike knows how to =====
-    var foreignKeyUserId = 8;
+    var foreignKeyUserId = 14;
     // ===== emotions var =====
     var happy = [];
     var okay = [];
@@ -139,14 +139,14 @@ $(document).ready(function() {
               '<div class="col s12"></div>' +
               '<div class="row container">' +
                 '<div id="results-title" class="col s3">' + 
-                  '<h5><strong class="teal-text text-lighten-2">Title#' + a + ':</strong></h5>' + '<div>' + title[a] + '</div>' +
+                  '<h5><strong class="teal-text text-lighten-2">Title# ' + (a + 1) + ':</strong></h5>' + '<div>' + title[a] + '</div>' +
                 '</div>' +
                 '<div class="col s9"></div>' +
               '</div>' + 
               '<div class="col s12"></div>' +
               '<div class="row">' +
                 '<div id="results-journals" class="col s12">' +
-                  '<h5><strong class="teal-text text-lighten-2">Journal#' + a + ':</strong></h5>' + '<div>' + journal[a] + '</div>' +
+                  '<h5><strong class="teal-text text-lighten-2">Journal# ' + a + ':</strong></h5>' + '<div>' + journal[a] + '</div>' +
                 '</div>' +
               '</div>' +
               '<div class="col s12"></div>' +

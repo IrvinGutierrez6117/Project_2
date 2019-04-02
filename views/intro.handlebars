@@ -1,26 +1,19 @@
 <nav>
   <div class="nav-wrapper white" id="nav-bar">
-    <a href="#" class="brand-logo center white text-black" id="logo-header">
-      <img src="../images/icons8-invert-selection-filled-48.png">
-      <h1 id="logo-name" class="col s12">Reflect</h1>    
-    </a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down ">
-    <!-- Dropdown Trigger -->
-    <a class='dropdown-trigger btn ' href='#' data-target='dropdown1'>  <i class="material-icons">menu</i></a>
-
-    <!-- Dropdown Structure -->
-    <ul id='dropdown1' class="dropdown-content ">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+    <a href="#" class="brand-logo container center white black-text"></a>
+    <ul id="nav-mobile" class="left show-on-med-and-down " data-target="mobile-demo" class="sidenav-trigger">
+        <li><a class='btn ' href='/'><i class="material-icons">home</i></a></li>
     </ul>
   </div>
-</nav>     
-{{!-- Login and Create buttons --}}
-<div id="intro-general-container">
-    <div class="row" >
-        <div class="container" id="logo-container">
-            <div class="row">
+</nav>
+ 
+<div class="parallax-container center valign-wrapper">
+    <div class="parallax p1"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                {{!-- <h3 class="landing-font" class="teal-text teal-text lighten-2">Take a Moment and</h3> --}}
+                <h2 class="landing-font" class="teal-text teal-text lighten-2">Reflect</h2>
                 <div class="col s12 m6 l3"><p></p></div>
                 <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-new-user-modal"><i class="material-icons">person</i> Create</a></p></div>
                 <div class="col s12 m6 l3"><p><a class="waves-effect waves-light btn modal-trigger" href="#intro-existing-user-modal">Login</a></div></p></div>
@@ -29,9 +22,80 @@
         </div>
     </div>
 
-</div>  
+    {{!-- About --}}
+    <div class="container">
+    <div class="row">
+       <div class="col m4 s12">
+         <div class="icon-block">
+           <h2 class="center teal-text">
+             <i class="material-icons">book</i>  
+           </h2>
+           <h5 class="center">Let's Get Digital!</h5>
+           <p class="light">
+             In the age of technology, who really has the time to sit and write down in a journal anymore? No one! 
+             Reflect is here to solve that problem by simply asking you how your day went and what you have you been
+             thinking about. In addition, we provide a space for you to write down any other things you may have on your mind. So, sit back, relax,
+             take a few moments of deep breaths and Reflect.
+           </p>
+         </div>
+         
+       </div>
+       <div class="col m4 s12">
+         <div class="icon-block">
+           <h2 class="center teal-text">
+             <i class="material-icons">group</i>  
+           </h2>
+           <h5 class="center">Mental Health Focused</h5>
+           <p class="light">
+             This application is to help you center yourself in this fast paced-society. Journaling your daily thoughts, 
+             habits, and personal life is proven to help with your mental health. With Reflect in the palm of your hand, you 
+             have a way to record everything down.
+           </p>
+         </div> 
+       </div>
+       <div class="col m4 s12">
+         <div class="icon-block">
+           <h2 class="center teal-text">
+             <i class="material-icons">insert_chart</i>  
+           </h2>
+           <h5 class="center">Your Progress</h5>
+           <p class="light">
+             We provide charts and data to show all your Reflections so that you can be able to look back 
+             at your entries. You can see what areas in your life you think more or less of.  
+           </p>
+         </div> 
+       </div>
+     </div>
+    </div>
+    {{!-- Empty Parallax for second image --}}
+    <div class="parallax-container center valign-wrapper">
+        <div class="parallax p2"></div>
+        
+        <div class="container white-text">
+            <div class="row">
+                <div class="col s12">
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Contact --}}
+    <div class="container center-align">
+        <div class="section" >
+            <div class="row">
+                <div class="col s12">
+                    <h4>Contact Us</h4>
+                    <p class="light center">
+                        We love to hear from you and know how Reflect has impacted your life! <br>
+                        reflect @ email .com
+                    </p>
+                </div>      
+            </div>
+        </div>
+    </div>
+</div>
 
-{{!-- Modal form --}}
+
+ {{!-- Modal form --}}
 <form action="/api/journalEntries" method="post">
     <!-- New User -->
     <div id="intro-new-user-modal" class="modal">
@@ -48,7 +112,7 @@
             <!-- Third -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="intro-new-password" type="text" class="validate">
+                    <input id="intro-new-password" type="password" class="validate">
                     <label for="intro-new-password">Create Password</label>
                 </div>
             </div>
@@ -59,12 +123,12 @@
                 <a id="intro-new-user-button" href="#intro-user-created-modal" class="modal-close waves-effect waves-green btn modal-trigger">Next</a>
             </div>
         </div>
-       
+    
     </div>
-     {{!-- Modal pop up after user creates an account --}}
+    {{!-- Modal pop up after user creates an account --}}
     <div id="intro-user-created-modal" class="modal">
         <div class="modal-content container">
-             <!-- Row below added to adjust size in CSS later -->
+            <!-- Row below added to adjust size in CSS later -->
             <div class="row" id="intro-above-emoji-space">
                 <div class="col s12"></div>
             </div>
@@ -99,7 +163,7 @@
             <!-- Third -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="intro-existing-password" type="text" class="validate">
+                    <input id="intro-existing-password" type="password" class="validate">
                     <label for="intro-existing-password">Password</label>
                 </div>
             </div>
@@ -305,30 +369,46 @@
         </div>
     </div>
 </form>
-
-<footer class="page-footer grey lighten-3">
-    <div class="container ">
+  
+  <!-- Footer -->
+<footer class="page-footer grey">
+<div class="container">
     <div class="row">
-        <div class="col l6 s12">
-        <h5 class="black-text">Creators</h5>
-        <p>
-            <ul class="black-text">
-                <li><a href="https://github.com/tracynle">Tracy Le</a></li>
-                <li><a href="https://github.com/notmattcaro">Matthew Caro</a></li>
-                <li><a href="https://github.com/IrvinGutierrez6117">Irvin Gutierrez</a></li>
-                <li><a href="https://github.com/sweetmike">Michael Rivera</a></li>
-            </ul>
+    <div class="col l6 s12">
+        <h5 class="white-text">Creators</h5>
+        <p class="grey-text text-lighten-4">
+          We are students from UCSD Extension Web Development Bootcamp. This is our second project which showcases our skills and knowledge of Front End 
+          and Back End. We are all passionate developers who love solving problems! Feel free to check our Github links. Thanks for stopping by!
         </p>
-        </div>
-        
+    </div>
+    <div class="col l6 s12" style="text-align: right;">        
+        <h5 class="white-text">Links</h5>
+        <ul>
+        <li>
+            <a href="https://github.com/tracynle" class="grey-text text-lighten-3">Tracy Le</a>
+        </li>
+        <li>
+            <a href="https://github.com/notmattcaro" class="grey-text text-lighten-3">Matthew Caro</a>
+        </li>
+        <li>
+            <a href="https://github.com/IrvinGutierrez6117" class="grey-text text-lighten-3">Irvin Gutierrez</a>
+        </li>
+        <li>
+            <a href="https://github.com/sweetmike" class="grey-text text-lighten-3">Michael Rivera</a>
+        </li>
+        </ul>
     </div>
     </div>
-    <div class="footer-copyright blue-grey lighten-2">
+</div>
+<div class="footer-copyright">
     <div class="container center">
-    © 2019 Copyright
+        2019 
     </div>
-    </div>
+</div>
 </footer>
+
+
+
             
 <!-- End of body, entering scripts  -->
 <!--Google Charts -->

@@ -1,18 +1,8 @@
 <nav>
   <div class="nav-wrapper white" id="nav-bar">
-    <a href="#" class="brand-logo center white text-black" id="logo-header">
-      <img src="../images/icons8-invert-selection-filled-48.png">
-      <h1 id="logo-name" class="col s12">Reflect</h1>    
-    </a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down ">
-    <!-- Dropdown Trigger -->
-    <a class='dropdown-trigger btn ' href='#' data-target='dropdown1'>  <i class="material-icons">menu</i></a>
-
-    <!-- Dropdown Structure -->
-    <ul id='dropdown1' class="dropdown-content ">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+    <a href="#" class="brand-logo container center white black-text">Your Reflection Results</a>
+    <ul id="nav-mobile" class="left show-on-med-and-down " data-target="mobile-demo" class="sidenav-trigger">
+        <li><a class='btn ' href='/'><i class="material-icons">home</i></a></li>
     </ul>
   </div>
 </nav>      
@@ -69,51 +59,43 @@
 
   </div>
 </div>
-    {{!-- <div class="row">
-      {{!-- random col of 12 to create space between  --}}
-      <div class="col s12"></div> 
-      {{!--  --}}
-      <div class="row container">
-        <div id="results-title" class="col s3">
-          {{this.title}} {{! ===== Journal Title is =====}}
-        </div>
-        <div class="col s9"></div>
-      </div>
-
-      <div class="col s12"></div>
-
-      <div class="row">
-        <div id="results-journals" class="col s12">
-          {{this.body}} {{! ===== Journal Body is =====}}
-        </div>
-      </div>
-
-      <div class="col s12"></div>
-    </div> --}}
-<footer class="page-footer grey lighten-3">
-    <div class="container ">
+    
+ <!-- Footer -->
+<footer class="page-footer grey">
+<div class="container">
     <div class="row">
-        <div class="col l6 s12">
-        <h5 class="black-text">Creators</h5>
-        <p>
-            <ul class="black-text">
-                <li><a href="https://github.com/tracynle">Tracy Le</a></li>
-                <li><a href="https://github.com/notmattcaro">Matthew Caro</a></li>
-                <li><a href="https://github.com/IrvinGutierrez6117">Irvin Gutierrez</a></li>
-                <li><a href="https://github.com/sweetmike">Michael Rivera</a></li>
-            </ul>
+    <div class="col l6 s12">
+        <h5 class="white-text">Creators</h5>
+        <p class="grey-text text-lighten-4">
+          We are students from UCSD Extension Web Development Bootcamp. This is our second project which showcases our skills and knowledge of Front End 
+          and Back End. We are all passionate developers who love solving problems! Feel free to check our Github links. Thanks for stopping by!
         </p>
-        </div>
-        
+    </div>
+    <div class="col l6 s12" style="text-align: right;">        
+        <h5 class="white-text">Links</h5>
+        <ul>
+        <li>
+            <a href="https://github.com/tracynle" class="grey-text text-lighten-3">Tracy Le</a>
+        </li>
+        <li>
+            <a href="https://github.com/notmattcaro" class="grey-text text-lighten-3">Matthew Caro</a>
+        </li>
+        <li>
+            <a href="https://github.com/IrvinGutierrez6117" class="grey-text text-lighten-3">Irvin Gutierrez</a>
+        </li>
+        <li>
+            <a href="https://github.com/sweetmike" class="grey-text text-lighten-3">Michael Rivera</a>
+        </li>
+        </ul>
     </div>
     </div>
-    <div class="footer-copyright blue-grey lighten-2">
+</div>
+<div class="footer-copyright">
     <div class="container center">
-    © 2019 Copyright
+        2019 
     </div>
-    </div>
+</div>
 </footer>
-
 <!-- End of body, entering scripts  -->
 
 <!--Google Charts -->
