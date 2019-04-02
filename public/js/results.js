@@ -1,3 +1,12 @@
+// Retrieve currentUserID variable from intro.js via Local Storage
+var currUserIdRcvd = Number(localStorage.getItem("currUserIdLS"));
+
+console.log("variable transfered from local storage > " + currUserIdRcvd);
+console.log("Type of variable: " + typeof currUserIdRcvd);
+
+Number(currUserIdRcvd);
+console.log("New Type = " + typeof currUserIdRcvd + " " + currUserIdRcvd);
+
 $(document).ready(function() {
   // =========== Problem we need to solve -- Get current user & database info we can use ==========
 
