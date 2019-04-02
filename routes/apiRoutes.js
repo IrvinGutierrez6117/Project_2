@@ -27,6 +27,30 @@ module.exports = function(app) {
     });
   });
 
+  // ===== Matt & Tracy's Stuff =====
+  app.get("/api/entries/journals", function(req, res) {
+    console.log("PRINT TEST");
+    console.log(req.query.UserId);
+    db.JournalEntries.findAll({
+      where: {
+        UserId: req.query.UserId // where the foreign key is
+      }
+    }).then(function(dbOfJournalEntries) {
+      res.json(dbOfJournalEntries);
+    });
+  });
+
+  // app.get("/api/entries/journals/body", function(req, res) {
+  //   db.JournalEntries.findAll({
+  //     where: {
+  //       UserId: req.query.UserId
+  //     }
+  //   }).then(function(dbJournalEntriesStuff) {
+
+  //   });
+  // });
+  // ===== End of Matt & Tracy's Stuff =====
+
   // Create new entry (CREATE) for specific user
   app.post("/api/entries/", function(req, res) {
     //db.tableName.create(req.body).then(function(dbName) {});
@@ -37,8 +61,6 @@ module.exports = function(app) {
       res.json(dbJournalEntries);
     });
   });
-
-  // Find one specific post
 };
 
 // RESTful: POST GET PUT DELETE

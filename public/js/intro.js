@@ -5,9 +5,12 @@ $(document).ready(function() {
     $('.modal').modal();
     //initialize textarea materialize
     $('input#input_text, textarea#textarea2').characterCounter();
-    // Form submit button entry
-    // $("#intro-submit-entry").on("click", submitEntry);
-   
+
+    // Dropdwon menu
+    $(".dropdown-trigger").dropdown({
+        coverTrigger: false,
+        hover: true
+    })
 });
 
 // Flag for logged in user
