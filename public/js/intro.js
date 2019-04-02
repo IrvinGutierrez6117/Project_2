@@ -5,9 +5,8 @@ $(document).ready(function() {
     $('.modal').modal();
     //initialize textarea materialize
     $('input#input_text, textarea#textarea2').characterCounter();
-    // Form submit button entry
-    // $("#intro-submit-entry").on("click", submitEntry);
-   
+
+ 
 });
 
 // Flag for logged in user
@@ -50,6 +49,11 @@ var API = {
                     currentUserId = req[i].id; // Stores current user ID in variable for entry POST
                     console.log("isLoggedIn = " + isLoggedIn);
                     console.log("Current logged in user ID: " + currentUserId);
+
+                    // Store currentUserID in Local Stoage
+                    localStorage.setItem("currUserIdLS", currentUserId);
+                    console.log("sending current user id to LS > " + currentUserId);
+
                 } else {
                     console.log("No match :(");
                     // Need to redirect to New User Model

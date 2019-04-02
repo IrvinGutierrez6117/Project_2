@@ -1,20 +1,108 @@
 <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Logo</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="intro">Home</a></li>
-       
-      </ul>
+  <div class="nav-wrapper white" id="nav-bar">
+    <a href="#" class="brand-logo container center white black-text">Your Reflection Results</a>
+    <ul id="nav-mobile" class="left show-on-med-and-down " data-target="mobile-demo" class="sidenav-trigger">
+        <li><a class='btn ' href='/'><i class="material-icons">home</i></a></li>
+    </ul>
+  </div>
+</nav>      
+<div class="container-results">
+  <div class="row">
+    <div class="col s12">
+      {{!-- Pie Chart Results --}}
+      <div id="results-general-container" class="container row">
+       <div class="row">
+          <div class="col s12">
+          <div id="piechart"></div>
+          {{#each JournalEntries}}
+          <p>Emotions:</p>
+          <li>{{this.emotions}}</li>
+          {{/each}}
+
+        </div>
+       </div>
+      </div> 
+    </div> 
+    {{!-- Break down of results --}}
+    <div class="row">
+      {{!-- ========== TRACY I COMMENTED THIS OUT ========== --}}
+      {{!-- <div class="col s12 center">
+        <h3 class="title">Your Reflections</h3>
+        <div class="row">
+          <div class="col s12 m6 l4"><p>Past:</p><h1 class="percent">10%</div>
+          <div class="col s12 m6 l4"><p>Present:</p><h1 class="percent">35%</div>
+          <div class="col s12 m6 l4"><p>Future:</p><h1 class="percent">55%</div>
+
+        </div>
+      </div> --}}
+    <div class="row">
+    <div class="col s12">
+      {{!-- Pie Chart Results --}}
+      <div id="results-general-container" class="container row">
+       <div class="row">
+          <div class="col s12">
+          <div id="barchart_material"></div>
+
+        </div>
+       </div>
+      </div> 
+    </div> 
     </div>
-</nav>
+  </div>
+  
 
-<div id="results-general-container" class="container row">
-    {{!-- Pie chart appears here --}}
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
 </div>
+{{!--  --}}
+<div id="overall-journal-container">
+  <div id="results-journal-rendering" class="container">
 
+
+  </div>
+</div>
+    
+ <!-- Footer -->
+<footer class="page-footer grey">
+<div class="container">
+    <div class="row">
+    <div class="col l6 s12">
+        <h5 class="white-text">Creators</h5>
+        <p class="grey-text text-lighten-4">
+          We are students from UCSD Extension Web Development Bootcamp. This is our second project which showcases our skills and knowledge of Front End 
+          and Back End. We are all passionate developers who love solving problems! Feel free to check our Github links. Thanks for stopping by!
+        </p>
+    </div>
+    <div class="col l6 s12" style="text-align: right;">        
+        <h5 class="white-text">Links</h5>
+        <ul>
+        <li>
+            <a href="https://github.com/tracynle" class="grey-text text-lighten-3">Tracy Le</a>
+        </li>
+        <li>
+            <a href="https://github.com/notmattcaro" class="grey-text text-lighten-3">Matthew Caro</a>
+        </li>
+        <li>
+            <a href="https://github.com/IrvinGutierrez6117" class="grey-text text-lighten-3">Irvin Gutierrez</a>
+        </li>
+        <li>
+            <a href="https://github.com/sweetmike" class="grey-text text-lighten-3">Michael Rivera</a>
+        </li>
+        </ul>
+    </div>
+    </div>
+</div>
+<div class="footer-copyright">
+    <div class="container center">
+        2019 
+    </div>
+</div>
+</footer>
+<!-- End of body, entering scripts  -->
+
+<!--Google Charts -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!--Jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <!-- Materialize JS Framework -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script>
+
 <script src="/js/results.js"></script>
