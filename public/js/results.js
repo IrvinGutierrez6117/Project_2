@@ -28,7 +28,7 @@ $(document).ready(function() {
     // =========== Global Variables for emotions, time, and journal functions ==========
 
     // ===== temporary user Id until mike knows how to =====
-    var foreignKeyUserId = 14;
+    var foreignKeyUserId = currUserIdRcvd;
     // ===== emotions var =====
     var happy = [];
     var okay = [];

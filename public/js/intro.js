@@ -6,11 +6,7 @@ $(document).ready(function() {
     //initialize textarea materialize
     $('input#input_text, textarea#textarea2').characterCounter();
 
-    // Dropdwon menu
-    $(".dropdown-trigger").dropdown({
-        coverTrigger: false,
-        hover: true
-    })
+ 
 });
 
 // Flag for logged in user
