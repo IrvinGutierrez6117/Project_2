@@ -144,18 +144,21 @@ $(document).ready(function() {
           const userJournals = data[a];
           var journalsHolder = document.getElementById("results-journal-rendering"); //grabs container
           $("#results-journal-rendering").prepend(
-            '<div class="row grey lighten-3" id="journal entry ' + a + '">' +  //IF WORKS KEEP IT'S IMPORTANT
+            '<div class="row grey lighten-3 matt-pad" id="journal entry ' + a + '">' +  //IF WORKS KEEP IT'S IMPORTANT
               '<div class="col s12"></div>' +
               '<div class="row container">' +
-                '<div id="results-title" class="col s3">' + 
-                  '<h5><strong class="teal-text text-lighten-2">Title# ' + (a + 1) + ':</strong></h5>' + '<div>' + title[a] + '</div>' +
+                '<div id="entry-number" class="entry-number col s12">' + 
+                  '<h4><strong>' + 'Entry: ' + (a + 1) + '</strong></h4>' +
                 '</div>' +
-                '<div class="col s9"></div>' +
+                '<div id="results-title" class="col s4">' + 
+                  '<h5><strong class="teal-text text-lighten-2">Title:' + '</strong></h5>' + '<div class="matt-font">' + title[a] + '</div>' +
+                '</div>' +
+                '<div class="col s8"></div>' +
               '</div>' + 
               '<div class="col s12"></div>' +
               '<div class="row">' +
                 '<div id="results-journals" class="col s12">' +
-                  '<h5><strong class="teal-text text-lighten-2">Journal# ' + (a + 1) + ':</strong></h5>' + '<div>' + journal[a] + '</div>' +
+                  '<h5><strong class="teal-text text-lighten-2">Journal:' + '</strong></h5>' + '<div class="matt-font">' + journal[a] + '</div>' +
                 '</div>' +
               '</div>' +
               '<div class="col s12"></div>' +

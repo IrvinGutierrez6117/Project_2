@@ -35,7 +35,4 @@ We hope that you may achieve a healthy mind and heart with the help of Reflect.
 - Irvin Gutierrez 
 - Michael Rivera
 
-
-
-
-
+Click here to see the app: [Reflect](http://mindblog.herokuapp.com)
